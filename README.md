@@ -1,6 +1,6 @@
 ### Node.js - Watching changes (created, deleted, changed )  in Windows folder on network with chokidar.
 
-####1. Installation
+#### 1. Installation
 
 Install Node.js
 https://nodejs.org/en/download/
@@ -14,7 +14,7 @@ Opens terminal windows and execute:
 $npm install chokidar --save
 ``
 
-####2. Map a network drive in Windows
+#### 2. Map a network drive in Windows
 
 Specify the drive letter for the connection and the folder that you want to connect.
 Example:
@@ -23,7 +23,7 @@ Example:
 Shared (\\W-LNIELSEN\Users\leslie.nielsen\Desktop\Temp\2018)(Z:)
 ``
 
-####3. watcher.js
+#### 3. watcher.js
 
 **Add the usePolling: true option to watch network folders.**
 
@@ -63,7 +63,7 @@ catch (err)
 }
 ```
 
-####4. Running the watcher:
+#### 4. Running the watcher:
 
 ``
 $node watcher.js
