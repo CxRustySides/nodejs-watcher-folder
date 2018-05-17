@@ -36,7 +36,8 @@ var log_file = fs.createWriteStream(__dirname + '/watch.log', {flags : 'w'});
 
 try
   {
-        var watcher = chokidar.watch('D:\\folderToWatch',
+  		//Format of local path: D:\\folderToWatch
+        var watcher = chokidar.watch('Z:',
         {
                     ignored: /^\./,
                     persistent: true,
@@ -72,4 +73,4 @@ $node watcher.js
 Add files or folders to remote path:
 ``Shared (\\W-LNIELSEN\Users\leslie.nielsen\Desktop\Temp\2018)(Z:)`` and check if log watch.log tracked these files.
 
-<img src="https://image.ibb.co/g1T90d/watcher_node01.jpg" alt="watcher_node01" border="0"></a>
+<img src="https://image.ibb.co/hcqQ6J/watcher_node02.jpg" alt="watcher_node02" border="0"></a>

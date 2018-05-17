@@ -6,7 +6,8 @@ var log_file = fs.createWriteStream(__dirname + '/watch.log', {flags : 'w'});
 
 try
   {
-        var watcher = chokidar.watch('D:\\folderToWatch',
+  		//Format of local path: D:\\folderToWatch
+        var watcher = chokidar.watch('Z:',
         {
                     ignored: /^\./,
                     persistent: true,
