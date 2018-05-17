@@ -74,3 +74,65 @@ Add files or folders to remote path:
 ``Shared (\\W-LNIELSEN\Users\leslie.nielsen\Desktop\Temp\2018)(Z:)`` and check if log watch.log tracked these files.
 
 <img src="https://image.ibb.co/hcqQ6J/watcher_node02.jpg" alt="watcher_node02" border="0"></a>
+
+
+
+----
+
+### PowerShell Script - Watching changes (created, deleted, changed,renamed )  in a folder.
+
+#### 1. watcher.ps1
+
+
+    $watcher = New-Object System.IO.FileSystemWatcher
+    $watcher.Path = "D:\source"
+    $watcher.Filter = "*.txt*"
+    $watcher.IncludeSubdirectories = $true
+    $watcher.EnableRaisingEvents = $true  
+
+
+    $action = { $path = $Event.SourceEventArgs.FullPath
+                $changeType = $Event.SourceEventArgs.ChangeType
+                $logline = "$(Get-Date), $changeType, $path"
+                Add-content "D:\log.txt" -value $logline
+              }    
+
+    Register-ObjectEvent $watcher "Created" -Action $action
+    Register-ObjectEvent $watcher "Changed" -Action $action
+    Register-ObjectEvent $watcher "Deleted" -Action $action
+    Register-ObjectEvent $watcher "Renamed" -Action $action
+    while ($true) {sleep 5}
+
+#### 2. Enabling Execution of PowerShell PS1 Scripts
+
+``File C:\Temp\watcher.ps1 cannot be loaded because the execution of scripts is disabled on this system. Please see "get-help about_signing" for more details.``
+
+To run PowerShell scripts (files that end with .ps1), you must first set the execution policy to Unrestricted (As an Administrator).
+
+``
+PS> Set-ExecutionPolicy Unrestricted  
+``
+
+[A] Yes to All
+
+
+Launch Windows PowerShell, and wait a moment for the PS command prompt to appear
+Navigate to the directory where the script lives.
+
+``
+PS> cd C:\tmp\watcher.ps1\  (enter)
+``
+
+Execute the script:
+
+``
+PS> .\watcher.ps1 (enter)
+``
+
+#### 3. Check the log file
+
+``
+D:\log.txt
+``
+
+<img src="https://image.ibb.co/gBu4Yy/watcher_powershell.jpg" alt="watcher_powershell" border="0"></a>
