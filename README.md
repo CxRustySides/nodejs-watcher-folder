@@ -71,7 +71,7 @@ $node watcher.js
 ``
 
 Add files or folders to remote path:
-``Shared (\\W-LNIELSEN\Users\leslie.nielsen\Desktop\Temp\2018)(Z:)`` and check if log watch.log tracked these files.
+``Shared (\\W-LNIELSEN\Users\leslie.nielsen\Desktop\Temp\2018)(Z:)`` and check if log watch.log stored the changes.
 
 <img src="https://image.ibb.co/hcqQ6J/watcher_node02.jpg" alt="watcher_node02" border="0"></a>
 
@@ -131,8 +131,6 @@ PS> .\watcher.ps1 (enter)
 
 #### 3. Check the log file
 
-``
-D:\log.txt
-``
+Add files or folders to the path: ``D:\source`` and check if  ``D:\log.txt`` stored the changes.
 
 <img src="https://image.ibb.co/gBu4Yy/watcher_powershell.jpg" alt="watcher_powershell" border="0"></a>
